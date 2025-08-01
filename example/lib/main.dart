@@ -14,12 +14,16 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(title: const Text("Auto Text Resizer Demo")),
         body: Center(
-          child: SizedBox(
-            width: 150, // try different widths
-            child: AutoText(
-              "This is a very long text that should shrink!",
-              style: const TextStyle(color: Colors.black),
-              minFontSize: 10,
+          child: Container(
+            color: Colors.yellow[100],
+            width: 250,
+            height: 150,
+            padding: const EdgeInsets.all(8),
+            child: const AutoText(
+              "This is a very long title that should shrink to fit.",
+              style: TextStyle(fontWeight: FontWeight.bold),
+              maxLines: 2,
+              minFontSize: 8,
               maxFontSize: 30,
             ),
           ),
