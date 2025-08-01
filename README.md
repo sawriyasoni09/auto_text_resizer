@@ -20,4 +20,4 @@ Add this to your **pubspec.yaml**:
 
 ```yaml
 dependencies:
-  auto_text_resizer: ^1.0.0
+  auto_text_resizer: ^1.0.1

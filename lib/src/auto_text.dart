@@ -1,10 +1,10 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 class AutoText extends StatelessWidget {
   final String text;
   final TextStyle? style;
-  final TextAlign? textAlign;
   final int maxLines;
+  final TextAlign textAlign;
   final double minFontSize;
   final double maxFontSize;
 
@@ -12,10 +12,10 @@ class AutoText extends StatelessWidget {
       this.text, {
         super.key,
         this.style,
-        this.textAlign,
         this.maxLines = 1,
-        this.minFontSize = 10,
-        this.maxFontSize = 100,
+        this.textAlign = TextAlign.start,
+        this.minFontSize = 12,
+        this.maxFontSize = 40,
       });
 
   @override
@@ -26,26 +26,30 @@ class AutoText extends StatelessWidget {
 
         final textPainter = TextPainter(
           text: TextSpan(text: text, style: style?.copyWith(fontSize: fontSize)),
-          maxLines: maxLines,
           textDirection: TextDirection.ltr,
+          maxLines: maxLines,
         );
 
         while (fontSize > minFontSize) {
-          textPainter.text = TextSpan(text: text, style: style?.copyWith(fontSize: fontSize));
+          textPainter.text =
+              TextSpan(text: text, style: style?.copyWith(fontSize: fontSize));
           textPainter.layout(maxWidth: constraints.maxWidth);
 
-          if (!textPainter.didExceedMaxLines && textPainter.width <= constraints.maxWidth) {
+          if (textPainter.didExceedMaxLines ||
+              textPainter.width > constraints.maxWidth) {
+            fontSize -= 1;
+          } else {
             break;
           }
-          fontSize -= 1;
         }
 
         return Text(
           text,
-          style: style?.copyWith(fontSize: fontSize) ?? TextStyle(fontSize: fontSize),
-          textAlign: textAlign,
+          style: style?.copyWith(fontSize: fontSize) ??
+              TextStyle(fontSize: fontSize),
           maxLines: maxLines,
           overflow: TextOverflow.ellipsis,
+          textAlign: textAlign,
         );
       },
     );
