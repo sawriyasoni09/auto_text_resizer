@@ -1,11 +1,12 @@
 name: auto_text_resizer
 description: >
-  A lightweight Flutter widget that automatically resizes text to fit its container.
-  Useful for dynamic layouts, buttons, and titles.
-version: 0.0.1
-homepage: https://github.com/yourusername/auto_text_resizer
-repository: https://github.com/yourusername/auto_text_resizer
-issue_tracker: https://github.com/yourusername/auto_text_resizer/issues
+  A lightweight Flutter widget that automatically adjusts and resizes text
+  to perfectly fit within its container. Ideal for dynamic layouts, buttons,
+  cards, and titles where text size must adapt to available space.
+version: 1.0.0
+homepage: https://github.com/sawriyasoni09/auto_text_resizer
+repository: https://github.com/sawriyasoni09/auto_text_resizer
+issue_tracker: https://github.com/sawriyasoni09/auto_text_resizer/issues
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -27,3 +28,5 @@ topics:
   - text
   - typography
   - auto-resize
+  - responsive
+  - layout
