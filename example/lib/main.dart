@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
         body: Center(
           child: Container(
             color: Colors.yellow[100],
-            width: 130,
-            height: 100,
+            width: 250,
+            height: 150,
             padding: const EdgeInsets.all(8),
             child: const AutoText(
               "This is a very long title that should shrink to fit.",
